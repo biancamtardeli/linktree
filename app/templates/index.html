@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <!--<link rel="shortcut icon" type="image/png" href="../static/img/favicon.png">-->
+    <title>IFSULDEMINAS - linktree</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <img id="previewImage" src="{{ perfil.imagem.url }}" alt="Perfil">
+
+        <h1 class="flutuar">{{ perfil.nome }}</h1>
+
+        <p>{{ perfil.descricao }}</p>
+
+        <div class="social-icons">
+            {% for redeSocial in redes_sociais %}
+            <a target="_blank" href="{{ redeSocial.url }}">
+                <i class="{{ redeSocial.icone }}"></i>
+            </a>
+            {% endfor %}
+        </div>
+
+        <p class="chamada">{{ perfil.mensagem }}</p>
+
+        <div class="itens-container" id="itensContainer">
+            {% for link in links %}
+            <div class="item-row" data-type="{{ link.tipo|lower }}">
+                <!--{% if link.tipo == 'subtitulo' %}-->
+                <p  class="item-text">{{ link.texto }}</p>
+                <!--{% else %}-->
+                <a target="_blank" href="{{ link.url }}" class="item-text btn">{{ link.texto }}</a>
+                <!--{% endif %}-->
+            </div>
+            {% endfor %}
+        </div>
+</body>
+
+</html>
