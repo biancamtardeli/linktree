@@ -20,6 +20,7 @@ class Perfil(models.Model):
 
     class Meta:
         verbose_name = "Perfil"
+        verbose_name_plural = "Perfil"
 
     def save(self, *args, **kwargs):
         if Perfil.objects.exists() and not self.pk:
@@ -29,24 +30,24 @@ class Perfil(models.Model):
     def __str__(self):
         return self.nome
     
-class RedeSocial(models.Model):
-    url = models.URLField()
+class Icone(models.Model):
     icone = models.CharField(max_length=50)
     texto = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = "Ícone"
+        verbose_name_plural = "Ícones"
+
+    def __str__(self):
+        return self.texto
+    
+class RedeSocial(models.Model):
+    url = models.URLField()
+    icone = models.ForeignKey(Icone, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Rede Social"
         verbose_name_plural = "Redes Sociais"
 
     def __str__(self):
-        return self.texto
-    
-class Subtitulo(models.Model):
-    texto = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name = "Subtítulo"
-        verbose_name_plural = "Subtítulos"
-
-    def __str__(self):
-        return self.texto
+        return self.icone.texto

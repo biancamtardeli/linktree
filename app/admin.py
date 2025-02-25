@@ -5,4 +5,4 @@ from .models import *
 admin.site.register(Link);
 admin.site.register(Perfil);
 admin.site.register(RedeSocial);
-admin.site.register(Subtitulo);
+admin.site.register(Icone);

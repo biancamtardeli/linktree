@@ -7,7 +7,7 @@ class IndexView(View):
         links = Link.objects.all()
         perfil = Perfil.objects.first()
         redes_sociais = RedeSocial.objects.all()
-        subtitulo = Subtitulo.objects.first()
-        return render(request, 'index.html', {'links': links, 'perfil': perfil, 'redes_sociais': redes_sociais, 'subtitulo': subtitulo})
+        icones = Icone.objects.first()
+        return render(request, 'index.html', {'links': links, 'perfil': perfil, 'redes_sociais': redes_sociais, 'icone': icones})
     def post(self, request):
         pass
