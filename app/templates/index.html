@@ -11,14 +11,10 @@
 </head>
 
 <body>
-
     <div class="container">
         <img id="previewImage" src="{{ perfil.imagem.url }}" alt="Perfil">
-
         <h1 class="flutuar">{{ perfil.nome }}</h1>
-
         <p>{{ perfil.descricao }}</p>
-
         <div class="social-icons">
             {% for redeSocial in redes_sociais %}
             <a target="_blank" href="{{ redeSocial.url }}">
@@ -26,12 +22,10 @@
             </a>
             {% endfor %}
         </div>
-
         <p class="chamada">{{ perfil.mensagem }}</p>
-
         <div class="itens-container" id="itensContainer">
             {% for link in links %}
-            <div class="item-row" data-type="{{ link.tipo|lower }}">
+            <div class="item-row">
                 <a target="_blank" href="{{ link.url }}" class="item-text btn">{{ link.texto }}</a>
             </div>
             {% endfor %}
